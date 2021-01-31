@@ -1,0 +1,40 @@
+{% extends "product/layout.html" %}
+{% block title %}
+myapp homepage
+{% endblock %}
+{% block content %}
+<div class="container">
+<h1 class="text-center text-light bg-danger">STUDENT LIST</h1>
+    <a class="btn btn-outline-success" href="http://127.0.0.1:8000/admin/myapp/student/add/">
+       create
+        </a>
+    <table class="table table-bordered table table-info" >
+
+        <tr>
+            <th>ID</th> <th> Fullname</th> <th> Age</th> <th> Sex </th> <th> Nation</th> <th> Phonenumber</th> <th> Address</th>
+        </tr>
+    {% if rs %}
+        {% for item in rs %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fullname}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.sex}}</td>
+            <td>{{item.nation}}</td>
+            <td>{{item.phonenumber}}</td>
+            <td>{{item.address}}</td>
+
+
+
+
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td></td> <td></td> <td></td>
+        </tr>
+    {% endif %}
+    </table>
+</div>
+{% endblock %}
+
